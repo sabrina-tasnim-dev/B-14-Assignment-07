@@ -10,7 +10,7 @@ const Navlinks =async () => {
         <div >
            <div className='flex flex-wrap justify-center gap-4 text-xl mb-5'>
              {
-                data.map((item,i)=><Link key={i} href={`/category/${item.slug}`}>{item.icon}{item.nameBn}</Link>)
+                data.map((item,i)=><Link key={i} href={`/category/${item?.slug}`}>{item.icon}{item.nameBn}</Link>)
             }
            </div>
            

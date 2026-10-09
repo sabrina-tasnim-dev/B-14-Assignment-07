@@ -140,14 +140,12 @@ const ProductDetailsPage = async ({ params }) => {
             <td>{market.division}</td>
             <td>{toBangla(market.min)}</td>
             <td>{toBangla(market.max)}</td>
-            <td className="font-semibold"></td>
+            <td className="font-semibold">{toBangla((market.min+market.max)/2)}টাকা</td>
         </tr>
-       )) 
-    }
+       ))}
 </tbody>
-
 </table>
-          </div>
+</div>
 </section>
 </div>
  </div>
