@@ -1,7 +1,13 @@
+
 import Image from 'next/image';
+
 import React from 'react';
 import Navlinks from './Navlinks';
 import Marquee from './Marquee';
+import Link from 'next/link';
+import UserInfo from './UserInfo';
+import {Eye, EyeSlash} from "@gravity-ui/icons";
+
 
 const Navbar = () => {
 const date=new Date().toLocaleDateString(
@@ -10,6 +16,8 @@ const date=new Date().toLocaleDateString(
         dateStyle:'full'
     }
 )
+
+
     return (
         <div className="">
             <div className="navbar bg-base-100 shadow-sm flex justify-between ">
@@ -33,8 +41,9 @@ const date=new Date().toLocaleDateString(
   <div className="navbar-center hidden lg:flex">
    
   </div>
-  <div className="navbar-end">
-    <a className="btn">Button</a>
+  <div className="navbar-end gap-4">
+    
+    <UserInfo/>
   </div>
 </div>
  <Navlinks/>
