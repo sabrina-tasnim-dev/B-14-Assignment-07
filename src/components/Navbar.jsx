@@ -11,11 +11,11 @@ const date=new Date().toLocaleDateString(
     }
 )
     return (
-        <div>
-            <div className="navbar bg-base-100 shadow-sm flex justify-between">
+        <div className="">
+            <div className="navbar bg-base-100 shadow-sm flex justify-between ">
   <div className="flex items-center gap-2">
     
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden m-5">
 <Image className='w-10 h-10' height={50} width={50} 
                 src={'/logo-icon.png'} alt="logo"/>
       </div>
