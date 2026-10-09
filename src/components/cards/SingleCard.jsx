@@ -1,7 +1,9 @@
+import Link from 'next/link';
 import React from 'react';
 
 const SingleCard = ({item}) => {
     return (
+       <Link href={`/product/${item.slug}`}>
         <div>
 
 <div className="card w-full bg-green-50 card-sm shadow-sm ">
@@ -29,7 +31,7 @@ const SingleCard = ({item}) => {
 </div>
 
 
-        </div>
+        </div></Link>
     );
 };
 
