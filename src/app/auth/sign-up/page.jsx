@@ -2,7 +2,7 @@
 import { Button, Description, FieldError, Form, Input, Label, TextField } from '@heroui/react';
 import React from 'react';
 import {Check} from "@gravity-ui/icons";
-import { signIn, signUp } from '@/lib/auth-client';
+import { authClient, signIn, signUp } from '@/lib/auth-client';
 import { toast } from 'react-toastify';
 import { redirect } from 'next/navigation';
 import { FaGoogle } from 'react-icons/fa';
@@ -31,6 +31,7 @@ if(data){
     redirect("/")
 }
 };
+// google signin
 
 const handleGoogleSignIn=async(e)=>{
   e.preventDefault()
@@ -38,6 +39,13 @@ const handleGoogleSignIn=async(e)=>{
     provider:"google"
   })
   console.log("google",resData)
+}
+// github signin
+
+const handleGithubsignIn = async () => {
+    const data = await authClient.signIn.social({
+        provider: "github"
+    })
 }
     return (
        
@@ -142,7 +150,7 @@ const handleGoogleSignIn=async(e)=>{
       <p className='text-center'>অথবা</p>
     <div className='flex justify-between gap-2'>
       <button onClick={handleGoogleSignIn} className='btn btn-success'><FaGoogle />Google দিয়ে চালিয়ে যান</button>
-    <button className='btn btn-success '><FaGoogle />GitHub দিয়ে চালিয়ে যান</button>
+    <button onClick={handleGithubsignIn} className='btn btn-success '><FaGoogle />GitHub দিয়ে চালিয়ে যান</button>
     </div>
      <p>অ্যাকাউন্ট নেই? <Link className='text-green-500 underline' href={"/sign-up"}>সাইন আপ করুন</Link></p>
     </div>
