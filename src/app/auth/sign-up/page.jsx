@@ -182,7 +182,7 @@ const handleGithubsignIn = async () => {
   </p>
 </div>
 
-     <p>অ্যাকাউন্ট আছে?  <Link className='text-green-500 underline' href={"/sign-up"}>সাইন ইন করুন</Link></p>
+    
     </div>
     </Form>
 

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const data = "https://api.abcz.workers.dev/api/bazardor/products";
+const data = "https://openapi.programming-hero.com/api/bazardor/products";
 
 const toBangla = (value) =>
   Number(value).toLocaleString("bn-BD", {
