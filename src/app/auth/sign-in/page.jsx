@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { Check, Eye, EyeSlash } from '@gravity-ui/icons';
 import { redirect } from "next/navigation";
 import { useState } from "react";
+import Link from "next/link";
 
 
 
@@ -49,68 +50,57 @@ const SignInPage = () => {
         <Input placeholder="আপনার ইমেইল লিখুন" />
         <FieldError />
       </TextField>
-         <TextField className="w-full " name="password"
-         minLength={8}
-           validate={(value) => {
-          if (value.length < 8) {
-            return "পাসওয়ার্ড কমপক্ষে ৮ অক্ষরের হতে হবে";
-          }
-          if (!/[A-Z]/.test(value)) {
-            return "কমপক্ষে একটি ইংরেজি বড় হাতের অক্ষর দিন";
-          }
-          if (!/[0-9]/.test(value)) {
-            return "কমপক্ষে একটি সংখ্যা দিন";
-          }
-          return null;
-        }}>
-      <Label>পাসওয়ার্ড</Label>
-     
-      <InputGroup>
-        <InputGroup.Input  
-          className="w-full max-w-[280px]"
-          type={isVisible ? "text" : "password"}
-          value={isVisible ? "পাসওয়ার্ড লিখুন" : "••••••••"}
-        />
-        <InputGroup.Suffix className="pe-0">
-          <Button
-            isIconOnly
-            aria-label={isVisible ? "Hide password" : "Show password"}
-            size="sm"
-            variant="ghost"
-            onPress={() => setIsVisible(!isVisible)}
-          >
-            {isVisible ? <Eye className="size-4" /> : <EyeSlash className="size-4" />}
-          </Button>
-        </InputGroup.Suffix>
-      </InputGroup>
 
-    </TextField>
-      {/* <TextField
+<TextField
+  isRequired
+  name="password"
+  
+  type={isVisible ? "text" : "password"}
+  validate={(value) => {
+    if (value.length < 8) {
+      return "পাসওয়ার্ড কমপক্ষে ৮ অক্ষরের হতে হবে";
+    }
 
-        isRequired
-        minLength={8}
-        name="password"
-        type="password"
-      validate={(value) => {
-          if (value.length < 8) {
-            return "পাসওয়ার্ড কমপক্ষে ৮ অক্ষরের হতে হবে";
-          }
-          if (!/[A-Z]/.test(value)) {
-            return "কমপক্ষে একটি ইংরেজি বড় হাতের অক্ষর দিন";
-          }
-          if (!/[0-9]/.test(value)) {
-            return "কমপক্ষে একটি সংখ্যা দিন";
-          }
-          return null;
-        }}
+    if (!/[A-Z]/.test(value)) {
+      return "কমপক্ষে একটি ইংরেজি বড় হাতের অক্ষর দিন";
+    }
+
+    if (!/[0-9]/.test(value)) {
+      return "কমপক্ষে একটি সংখ্যা দিন";
+    }
+
+    return null;
+  }}
+>
+  <Label>পাসওয়ার্ড</Label>
+
+  <InputGroup>
+    <Input placeholder="পাসওয়ার্ড লিখুন" />
+
+    <InputGroup.Suffix className="pe-0">
+      <Button
+        type="button"
+        isIconOnly
+        aria-label={isVisible ? "Hide password" : "Show password"}
+        
+        variant="ghost"
+        onPress={() => setIsVisible(!isVisible)}
       >
-       <Label>পাসওয়ার্ড</Label>
-              <Input placeholder="পাসওয়ার্ড লিখুন" />
-              <Description>
-                কমপক্ষে ৮ অক্ষর, একটি বড় হাতের ইংরেজি অক্ষর ও একটি সংখ্যা দিন।
-              </Description>
-              <FieldError />
-      </TextField> */}
+        {isVisible ? (
+          <Eye className="size-4" />
+        ) : (
+          <EyeSlash className="size-4" />
+        )}
+      </Button>
+    </InputGroup.Suffix>
+  </InputGroup>
+
+  <Description>
+    কমপক্ষে ৮ অক্ষর, একটি বড় হাতের ইংরেজি অক্ষর ও একটি সংখ্যা দিন।
+  </Description>
+
+  <FieldError />
+</TextField>
       <div className="w-full ">
         <Button type="submit" className="w-full ">
                  <Check />
@@ -119,6 +109,7 @@ const SignInPage = () => {
        
       </div>
     </Form>
+    <p>অ্যাকাউন্ট নেই? <Link href={"/sign-up"}><span className="text-blue underline">সাইন আপ করুন</span></Link></p>
 
         </div>
         </main>

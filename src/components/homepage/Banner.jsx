@@ -10,8 +10,8 @@ const Banner = () => {
 )
     return (
         <div className='bg-green-500 max-w-7xl mx-auto'>
-           <div className="hero bg-white min-h-screen">
-  <div className="hero-content flex-col lg:flex-row-reverse">
+           <div className="hero bg-white min-h-[400px]">
+  <div className="hero-content flex-col lg:flex-row-reverse w-full justify-between gap-10">
     <Image
       alt="banner-pic"
       src={"/bazar-hero.png"}

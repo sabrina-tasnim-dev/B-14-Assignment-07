@@ -5,7 +5,7 @@ import {Check} from "@gravity-ui/icons";
 import { authClient, signIn, signUp } from '@/lib/auth-client';
 import { toast } from 'react-toastify';
 import { redirect } from 'next/navigation';
-import { FaGoogle } from 'react-icons/fa';
+import { FaGoogle ,FaGithub} from 'react-icons/fa';
 import Link from 'next/link';
 
 const SignUpPage = () => {
@@ -137,7 +137,7 @@ const handleGithubsignIn = async () => {
 
 
       <div className="flex gap-3 pt-2">
-        <Button type="submit" className="flex-1">
+        <Button type="submit" className="flex-1 ">
           <Check />
           সাইন আপ করুন
         </Button>
@@ -147,15 +147,45 @@ const handleGithubsignIn = async () => {
         </Button>
       </div>
        <div>
-      <p className='text-center'>অথবা</p>
-    <div className='flex justify-between gap-2'>
-      <button onClick={handleGoogleSignIn} className='btn btn-success'><FaGoogle />Google দিয়ে চালিয়ে যান</button>
-    <button onClick={handleGithubsignIn} className='btn btn-success '><FaGoogle />GitHub দিয়ে চালিয়ে যান</button>
-    </div>
-     <p>অ্যাকাউন্ট নেই? <Link className='text-green-500 underline' href={"/sign-up"}>সাইন আপ করুন</Link></p>
+   
+<div className="w-full">
+  <p className="mb-3 text-center">অথবা</p>
+
+  <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
+    <button
+  type="button"
+  onClick={handleGoogleSignIn}
+  className="btn btn-success w-full min-w-0 flex-nowrap whitespace-nowrap text-xs sm:text-sm"
+>
+  <FaGoogle className="shrink-0" />
+  <span>Google দিয়ে চালিয়ে যান</span>
+</button>
+
+<button
+  type="button"
+  onClick={handleGithubsignIn}
+  className="btn btn-success w-full min-w-0 flex-nowrap whitespace-nowrap text-xs sm:text-sm"
+>
+  <FaGithub className="shrink-0" />
+  <span>GitHub দিয়ে চালিয়ে যান</span>
+</button>
+  </div>
+
+  <p className="mt-4 text-center">
+    অ্যাকাউন্ট আছে?{" "}
+    <Link
+      className="text-green-500 underline"
+      href="/auth/sign-in"
+    >
+      সাইন ইন করুন
+    </Link>
+  </p>
+</div>
+
+     <p>অ্যাকাউন্ট আছে?  <Link className='text-green-500 underline' href={"/sign-up"}>সাইন ইন করুন</Link></p>
     </div>
     </Form>
-   
+
   </div>
  
 </main>
