@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# BazarDor 🛒
 
-## Getting Started
+BazarDor is a web-based e-commerce application built with Next.js and React. It provides a shopping-focused interface for browsing product categories and products. The project also includes user authentication and profile management.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Product Browsing:** Display products from an API.
+- **Product Categories:** Fetch and display available product categories.
+- **Dynamic Content:** Retrieve product information from an external API.
+- **User Authentication:** Sign up, sign in, and sign out using Better Auth.
+- **Profile Management:** View and update user profile information.
+- **Responsive UI:** Build a user-friendly interface with Tailwind CSS and DaisyUI.
+- **Notifications:** Display success and error messages using React Toastify.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Technologies Used
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Next.js
+- React
+- JavaScript
+- Tailwind CSS
+- DaisyUI
+- Better Auth
+- MongoDB
+- HeroUI
+- React Toastify
+- Next.js Image and Link components
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📁 Project Structure
+src/
+├── app/
+│   ├── auth/
+│   │   ├── sign-in/
+│   │   └── sign-up/
+│   ├── profile/
+│   ├── layout.js
+│   └── page.js
+├── components/
+│   ├── Navlinks.jsx
+│   ├── Marquee.jsx
+│   └── homepage/
+│       └── Homepage.jsx
+└── lib/
+    └── auth-client.js
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+*Note: The structure above is based on the files discussed during development. Adjust it to match your actual project folders and filenames.*
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔐 Authentication
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Better Auth handles user authentication, while MongoDB is used for database integration.
 
-## Deploy on Vercel
+Authentication features include:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- User registration
+- User sign-in
+- User sign-out
+- Profile information updates
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📌 Future Improvements
+
+- Product search and filtering
+- Product detail pages
+- Shopping cart functionality
+- Wishlist functionality
+- Improved API error handling
+- Order management
+
+
+
+*Built with Next.js and React.*
