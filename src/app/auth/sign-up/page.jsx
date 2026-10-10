@@ -2,10 +2,11 @@
 import { Button, Description, FieldError, Form, Input, Label, TextField } from '@heroui/react';
 import React from 'react';
 import {Check} from "@gravity-ui/icons";
-import { signUp } from '@/lib/auth-client';
+import { signIn, signUp } from '@/lib/auth-client';
 import { toast } from 'react-toastify';
 import { redirect } from 'next/navigation';
 import { FaGoogle } from 'react-icons/fa';
+import Link from 'next/link';
 
 const SignUpPage = () => {
       const onSubmit = async(e) => {
@@ -30,6 +31,14 @@ if(data){
     redirect("/")
 }
 };
+
+const handleGoogleSignIn=async(e)=>{
+  e.preventDefault()
+  const resData=await signIn.social({
+    provider:"google"
+  })
+  console.log("google",resData)
+}
     return (
        
 <main className="min-h-screen bg-[#f0f5f0] px-4 py-8">
@@ -129,10 +138,18 @@ if(data){
           মুছে ফেলুন
         </Button>
       </div>
+       <div>
+      <p className='text-center'>অথবা</p>
+    <div className='flex justify-between gap-2'>
+      <button onClick={handleGoogleSignIn} className='btn btn-success'><FaGoogle />Google দিয়ে চালিয়ে যান</button>
+    <button className='btn btn-success '><FaGoogle />GitHub দিয়ে চালিয়ে যান</button>
+    </div>
+     <p>অ্যাকাউন্ট নেই? <Link className='text-green-500 underline' href={"/sign-up"}>সাইন আপ করুন</Link></p>
+    </div>
     </Form>
-    <p>or</p>
-    <button className='btn btn-success'><FaGoogle /></button>
+   
   </div>
+ 
 </main>
 
     );

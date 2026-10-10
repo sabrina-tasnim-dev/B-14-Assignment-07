@@ -1,6 +1,7 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
 import { Spinner } from "@heroui/react";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -23,7 +24,7 @@ if(isPending){
         <div className="flex  items-center gap-2">
           <div className="avatar">
             <div className="ring-primary ring-offset-base-100 w-10 rounded-full ring-2 ring-offset-2">
-              <img alt="Tailwind-CSS-Avatar-component" src={user.image} />
+              <Image height={50} width={50} alt="Tailwind-CSS-Avatar-component" src={user.image} />
               <p>{user?.name}</p>
             </div>
           </div>
