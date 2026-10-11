@@ -19,10 +19,8 @@ const CategoryProducts = ({products}) => {
     return (
         <div className=''>
             <section>
-                <div  className="mb-4 flex items-center justify-between rounded-xl border bg-white p-4">
-           <span className="text-sm text-gray-500 mb-3">
-          মোট {sortedProducts.length}টি পণ্য দেখানো হচ্ছে
-        </span>
+                <div  className="mb-4 flex items-center justify-end rounded-xl border bg-white p-4">
+        
         <div className="flex items-center gap-2 mt-3">
  <label htmlFor="sort" className="text-sm">
             সাজান
@@ -38,6 +36,11 @@ const CategoryProducts = ({products}) => {
             <option value="high-low">দাম: বেশি থেকে কম</option>
           </select>
         </div>
+                </div>
+                <div className='mb-3'>
+                       <span className="text-sm text-gray-500">
+          মোট {sortedProducts.length}টি পণ্য দেখানো হচ্ছে
+        </span>
                 </div>
 
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">

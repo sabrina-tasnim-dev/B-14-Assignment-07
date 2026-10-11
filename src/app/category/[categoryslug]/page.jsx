@@ -32,7 +32,7 @@ const CaregoryPage = async({params}) => {
         )
     }
 
-    const categoryName=categoryProduct[0].NameBn;
+    const categoryName=categoryProduct[0].categoryNameBn;
     const categoryIcon=categoryProduct[0].categoryIcon;
     return (
         <div className='max-w-7xl mx-auto w-full'>
