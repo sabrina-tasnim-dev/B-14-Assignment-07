@@ -27,6 +27,7 @@ const SignInPage = () => {
     if (data) {
       redirect("/");
     }
+
     toast.success(`You have logedin successfully!`);
   };
   const [isVisible, setIsVisible] = useState(false);
@@ -39,7 +40,9 @@ const SignInPage = () => {
             বিস্তারিত দাম, বাজার তুলনা ও প্রোফাইল দেখতে অ্যাকাউন্টে ঢুকুন।
           </p>
         </div>
-        <Form className="flex w-full flex-col gap-4" onSubmit={onSubmit}>
+        <Form className="flex w-full flex-col gap-4" onSubmit={onSubmit}     onInvalid={() => {
+            toast.error("সবগুলো তথ্য সঠিকভাবে পূরণ করুন!");
+          }}>
           <TextField
             isRequired
             name="email"

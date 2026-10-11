@@ -64,6 +64,9 @@ const handleGithubsignIn = async () => {
     <Form
       className="mt-5 flex w-full flex-col items-stretch gap-4 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6"
       onSubmit={onSubmit}
+      onInvalid={() => {
+    toast.error("সবগুলো তথ্য সঠিকভাবে পূরণ করুন!");
+  }}
     >
       <TextField
         isRequired
@@ -147,7 +150,7 @@ const handleGithubsignIn = async () => {
                 </TextField>
       
    <TextField isRequired
-            name="password"
+            name="confirmPassword"
             type={isVisible ? "text" : "password"}
             className="w-full"
             validate={(value) => {

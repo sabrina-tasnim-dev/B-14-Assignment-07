@@ -17,11 +17,11 @@ const CaregoryPage = async({params}) => {
     console.log(categoryslug)
     
     const categoryProduct=await getCategoryProduct(categoryslug)
-    console.log(categoryProduct)
+    console.log("categoryProduct",categoryProduct)
 
-    if(!Array.isArray(categoryProduct|| categoryProduct.length===0)){
+    if(!Array.isArray(categoryProduct)|| categoryProduct.length===0){
         return(
-            <div className="mx-auto max-w-7xl p-6">
+            <div className="mx-auto max-w-7xl p-6 text-center bg-green-50">
    <h1 className="text-2xl font-bold">
           কোনো পণ্য পাওয়া যায়নি!
         </h1>
