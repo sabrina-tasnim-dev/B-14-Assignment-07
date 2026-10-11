@@ -31,7 +31,7 @@ const SignInPage = () => {
   };
   const [isVisible, setIsVisible] = useState(false);
   return (
-    <main className="min-h-screenpx-4 py-8">
+    <main className="min-h-screen px-4 py-8">
       <div className="mx-auto  bg-green-50  flex w-full max-w-md flex-col items-center">
         <div className="text-center ">
           <h1 className="text-2xl font-bold text-gray-900">সাইন ইন</h1>
@@ -56,10 +56,10 @@ const SignInPage = () => {
             <FieldError />
           </TextField>
 
-          <TextField
-            isRequired
+          <TextField isRequired
             name="password"
             type={isVisible ? "text" : "password"}
+            className="w-full"
             validate={(value) => {
               if (value.length < 8) {
                 return "পাসওয়ার্ড কমপক্ষে ৮ অক্ষরের হতে হবে";
@@ -74,14 +74,13 @@ const SignInPage = () => {
               }
 
               return null;
-            }}
-          >
+            }}>
             <Label>পাসওয়ার্ড</Label>
 
             <InputGroup className="w-full">
-              <Input className="w-full" placeholder="পাসওয়ার্ড লিখুন" />
+              <Input className="flex-1 min-w-0" placeholder="পাসওয়ার্ড লিখুন" />
 
-              <InputGroup.Suffix className="pe-2">
+              <InputGroup.Suffix className="shrink-0">
                 <Button
                   type="button"
                   isIconOnly
@@ -113,8 +112,8 @@ const SignInPage = () => {
         </Form>
         <p>
           অ্যাকাউন্ট নেই?{" "}
-          <Link href={"/sign-up"}>
-            <span className="text-blue underline">সাইন আপ করুন</span>
+          <Link href={"/auth/sign-up"}>
+            <span className="text-green-600 underline">সাইন আপ করুন</span>
           </Link>
         </p>
       </div>

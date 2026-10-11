@@ -1,7 +1,7 @@
 'use client'
-import { Button, Description, FieldError, Form, Input, Label, TextField } from '@heroui/react';
-import React from 'react';
-import {Check} from "@gravity-ui/icons";
+import { Button, Description, FieldError, Form, Input, InputGroup, Label, TextField } from '@heroui/react';
+import React, { useState } from 'react';
+import {Check, Eye, EyeSlash} from "@gravity-ui/icons";
 import { authClient, signIn, signUp } from '@/lib/auth-client';
 import { toast } from 'react-toastify';
 import { redirect } from 'next/navigation';
@@ -40,6 +40,7 @@ const handleGoogleSignIn=async(e)=>{
   })
   console.log("google",resData)
 }
+ const [isVisible, setIsVisible] = useState(false);
 // github signin
 
 const handleGithubsignIn = async () => {
@@ -49,7 +50,7 @@ const handleGithubsignIn = async () => {
 }
     return (
        
-<main className="min-h-screen bg-[#f0f5f0] px-4 py-8">
+<main className="min-h-screen bg-green-50 px-4 py-8">
   <div className="mx-auto flex w-full max-w-md flex-col items-center">
     <div className="text-center">
       <h1 className="text-2xl font-bold text-gray-900">
@@ -97,44 +98,102 @@ const handleGithubsignIn = async () => {
         <FieldError />
       </TextField>
 
-      <TextField
-        isRequired
-        className="w-full"
-        minLength={8}
-        name="password"
-        type="password"
-        validate={(value) => {
-          if (value.length < 8) {
-            return "পাসওয়ার্ড কমপক্ষে ৮ অক্ষরের হতে হবে";
-          }
-          if (!/[A-Z]/.test(value)) {
-            return "কমপক্ষে একটি ইংরেজি বড় হাতের অক্ষর দিন";
-          }
-          if (!/[0-9]/.test(value)) {
-            return "কমপক্ষে একটি সংখ্যা দিন";
-          }
-          return null;
-        }}
-      >
-        <Label>পাসওয়ার্ড</Label>
-        <Input placeholder="পাসওয়ার্ড লিখুন" />
-        <Description>
-          কমপক্ষে ৮ অক্ষর, একটি বড় হাতের ইংরেজি অক্ষর ও একটি সংখ্যা দিন।
-        </Description>
-        <FieldError />
-      </TextField>
+         <TextField isRequired
+                  name="password"
+                  type={isVisible ? "text" : "password"}
+                  className="w-full"
+                  validate={(value) => {
+                    if (value.length < 8) {
+                      return "পাসওয়ার্ড কমপক্ষে ৮ অক্ষরের হতে হবে";
+                    }
       
-<TextField
-  isRequired
-  className="w-full"
-  name="confirmPassword"
-  type="password"
->
-  <Label>পাসওয়ার্ড নিশ্চিত করুন</Label>
-  <Input placeholder="আবার পাসওয়ার্ড লিখুন" />
-  <FieldError />
-</TextField>
+                    if (!/[A-Z]/.test(value)) {
+                      return "কমপক্ষে একটি ইংরেজি বড় হাতের অক্ষর দিন";
+                    }
+      
+                    if (!/[0-9]/.test(value)) {
+                      return "কমপক্ষে একটি সংখ্যা দিন";
+                    }
+      
+                    return null;
+                  }}>
+                  <Label>পাসওয়ার্ড</Label>
+      
+                  <InputGroup className="w-full">
+                    <Input className="flex-1 min-w-0" placeholder="পাসওয়ার্ড লিখুন" />
+      
+                    <InputGroup.Suffix className="shrink-0">
+                      <Button
+                        type="button"
+                        isIconOnly
+                        aria-label={isVisible ? "Hide password" : "Show password"}
+                        variant="ghost"
+                        onPress={() => setIsVisible(!isVisible)}
+                      >
+                        {isVisible ? (
+                          <Eye className="size-4" />
+                        ) : (
+                          <EyeSlash className="size-4" />
+                        )}
+                      </Button>
+                    </InputGroup.Suffix>
+                  </InputGroup>
+      
+                  <Description>
+                    কমপক্ষে ৮ অক্ষর, একটি বড় হাতের ইংরেজি অক্ষর ও একটি সংখ্যা দিন।
+                  </Description>
+      
+                  <FieldError />
+                </TextField>
+      
+   <TextField isRequired
+            name="password"
+            type={isVisible ? "text" : "password"}
+            className="w-full"
+            validate={(value) => {
+              if (value.length < 8) {
+                return "পাসওয়ার্ড কমপক্ষে ৮ অক্ষরের হতে হবে";
+              }
 
+              if (!/[A-Z]/.test(value)) {
+                return "কমপক্ষে একটি ইংরেজি বড় হাতের অক্ষর দিন";
+              }
+
+              if (!/[0-9]/.test(value)) {
+                return "কমপক্ষে একটি সংখ্যা দিন";
+              }
+
+              return null;
+            }}>
+            <Label>পাসওয়ার্ড নিশ্চিত করুন </Label>
+
+            <InputGroup className="w-full">
+              <Input className="flex-1 min-w-0" placeholder="পাসওয়ার্ড লিখুন" />
+
+              <InputGroup.Suffix className="shrink-0">
+                <Button
+                  type="button"
+                  isIconOnly
+                  aria-label={isVisible ? "Hide password" : "Show password"}
+                  variant="ghost"
+                  onPress={() => setIsVisible(!isVisible)}
+                >
+                  {isVisible ? (
+                    <Eye className="size-4" />
+                  ) : (
+                    <EyeSlash className="size-4" />
+                  )}
+                </Button>
+              </InputGroup.Suffix>
+            </InputGroup>
+
+            <Description>
+              কমপক্ষে ৮ অক্ষর, একটি বড় হাতের ইংরেজি অক্ষর ও একটি সংখ্যা দিন।
+            </Description>
+
+            <FieldError />
+          </TextField>
+{/* পাসওয়ার্ড নিশ্চিত করুন */}
 
       <div className="flex gap-3 pt-2">
         <Button type="submit" className="flex-1 ">
@@ -173,11 +232,8 @@ const handleGithubsignIn = async () => {
 
   <p className="mt-4 text-center">
     অ্যাকাউন্ট আছে?{" "}
-    <Link
-      className="text-green-500 underline"
-      href="/auth/sign-in"
-    >
-      সাইন ইন করুন
+    <Link  href={"/auth/sign-in"}>
+      <span className="text-green-500 underline">সাইন ইন করুন</span>
     </Link>
   </p>
 </div>
